@@ -1,21 +1,20 @@
-const express = require('express');
+const _ = require('lodash');
+const yargs = require('yargs');
+const args = yargs.argv;
 const findMultiple = require('./helper/findMultiple');
-const app = express();
-
 const availableNodes = [100, 50, 20, 10];
 
-app.set('view engine', 'ejs');
+let userInput = args._[0];
+console.log("Your command is ", userInput);
 
-app.get('/', (req, res) => {
-    res.render('index');
-});
-
-app.get('/request/:amount', (req, res, next) => {
-    try {
-        let userInput = req.params.amount;
+try {
+    if (!typeof (userInput) === 'number') {
+        throw "InvalidArgumentException"
+    } else {
         const resultArr = [];
         if (!userInput) {
-            res.send(resultArr);
+            console.log("Result: ", resultArr);
+            return false;
         }
         if (userInput < 0) throw "InvalidArgumentException";
         availableNodes.forEach((node, index) => {
@@ -28,12 +27,8 @@ app.get('/request/:amount', (req, res, next) => {
                 } while (tempDiv !== 0)
             }
         });
-        res.send(resultArr);
-    } catch (exception) {
-        res.send(exception);
+        console.log("Result: ", resultArr);
     }
-});
-
-app.listen(3000, () => {
-    console.log('App is listening 3000 of port');
-});
+} catch (exception) {
+    console.log(exception);
+}
