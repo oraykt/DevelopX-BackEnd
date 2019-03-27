@@ -16,7 +16,7 @@ Then open new terminal tab and type
 nvm install --lts
 ```
 
-It doesn't have private npm repo currently so we need to clone DevelopX-Express from git repo and link it locally via 
+It doesn't have private npm repo currently so we need to clone DevelopX-Express from git repo and install it locally via 
 
 ```bash
 git clone git@github.com:oraykt/DevelopX-Express.git && cd DevelopX-Express && npm install && npm start
