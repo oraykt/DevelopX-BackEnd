@@ -21,7 +21,9 @@ router.get('/', (req, res, next) => {
         } while (tempDiv !== 0)
       }
     });
-    res.json({ result: resultArr });
+    res.render('result', {
+      result: resultArr
+    });
   } catch (exception) {
     res.json({ exception });
   }
@@ -45,7 +47,10 @@ router.post('/', (req, res, next) => {
         } while (tempDiv !== 0)
       }
     });
-    res.json({ result: resultArr });
+    // res.json({ result: resultArr });
+    res.render('result', {
+      result: resultArr
+    });
   } catch (exception) {
     res.json({ exception });
   }
