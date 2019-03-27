@@ -1,6 +1,4 @@
 # DevelopX
 
-``` npm install ```
-``` node cli-app.js ${amount} ```
-forExample
-``` node cli-app.js 90 ```
+``` npm install ``` <br/>
+``` npm start ``` 
