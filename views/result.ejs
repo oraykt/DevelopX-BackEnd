@@ -1,16 +1,19 @@
-<h2>Take your money </h2><br />
-
+<h4>Result:</h4>
 <ul>
+    <% if(result.length!==0){%>
+
     <%result.forEach(function(val){%>
     <li>
         <%=val%>
     </li>
 
     <%})%>
+    <%}else{%>
+    <li>
+        0
+    </li>
+    <%}%>
+    
 </ul>
 
-<a>
-    <button>
-        Go Back!
-    </button>
-</a>
+<p><a href="/"><button>Back to Home</button></a></p>

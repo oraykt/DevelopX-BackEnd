@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 
 
 var requestRouter = require('./routes/requestRouter');
-const withdrawRouter = require('./routes/withdrawRouter');
 var app = express();
 
 // view engine setup
@@ -21,7 +20,6 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/withdraw', withdrawRouter);
 app.use('/request', requestRouter);
 
 app.get('/', (req, res, next) => {

@@ -1,58 +1,44 @@
 var express = require('express');
 var router = express.Router();
-const findMultiple = require('../helper/findMultiple');
+const findResult = require('../helper/findResult');
+const availableNotes = [100, 50, 20, 10];
 
-const availableNodes = [100, 50, 20, 10];
 router.get('/', (req, res, next) => {
   try {
-    let userInput = req.query.amount;
-    const resultArr = [];
-    if (!userInput) {
-      res.json({ result: resultArr });
-    }
-    if (userInput < 0) throw "InvalidArgumentException";
-    availableNodes.forEach((node, index) => {
-      let tempDiv = findMultiple(index, userInput, availableNodes);
-      if (tempDiv) {
-        userInput -= tempDiv * node;
-        do {
-          resultArr.push(node);
-          tempDiv--;
-        } while (tempDiv !== 0)
-      }
-    });
+    const resultArr = findResult(availableNotes, req.query.amount);
     res.render('result', {
       result: resultArr
     });
   } catch (exception) {
-    res.json({ exception });
+    res.render('error', {
+      exception
+    });
+  }
+});
+
+router.get('/:amount', (req, res, next) => {
+  try {
+    const resultArr = findResult(availableNotes, req.params.amount);
+    res.render('result', {
+      result: resultArr
+    });
+  } catch (exception) {
+    res.render('error', {
+      exception
+    });
   }
 });
 
 router.post('/', (req, res, next) => {
   try {
-    let userInput = req.body.amount;
-    const resultArr = [];
-    if (!userInput) {
-      res.json({ result: resultArr });
-    }
-    if (userInput < 0) throw "InvalidArgumentException";
-    availableNodes.forEach((node, index) => {
-      let tempDiv = findMultiple(index, userInput, availableNodes);
-      if (tempDiv) {
-        userInput -= tempDiv * node;
-        do {
-          resultArr.push(node);
-          tempDiv--;
-        } while (tempDiv !== 0)
-      }
-    });
-    // res.json({ result: resultArr });
+    const resultArr = findResult(availableNotes, req.body.amount);
     res.render('result', {
       result: resultArr
     });
   } catch (exception) {
-    res.json({ exception });
+    res.render('error', {
+      exception
+    });
   }
 });
 module.exports = router;
