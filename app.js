@@ -6,16 +6,20 @@ const availableNodes = [100, 50, 20, 10];
 
 app.set('view engine', 'ejs');
 
+app.use((req, res, next) => {
+    next();
+})
+
 app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/request/:amount', (req, res, next) => {
+app.get('/request', (req, res, next) => {
     try {
-        let userInput = req.params.amount;
+        let userInput = req.query.amount;
         const resultArr = [];
         if (!userInput) {
-            res.send(resultArr);
+            res.render('result', { resultArr });
         }
         if (userInput < 0) throw "InvalidArgumentException";
         availableNodes.forEach((node, index) => {
@@ -28,9 +32,9 @@ app.get('/request/:amount', (req, res, next) => {
                 } while (tempDiv !== 0)
             }
         });
-        res.send(resultArr);
+        res.render('result', { resultArr });
     } catch (exception) {
-        res.send(exception);
+        res.render('result', { exception });
     }
 });
 
