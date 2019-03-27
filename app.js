@@ -44,9 +44,9 @@ app.get('/request/:amount', (req, res, next) => {
                 } while (tempDiv !== 0)
             }
         });
-        console.log(resultArr);
+        res.send(resultArr);
     } catch (exception) {
-        console.log(exception);
+        res.send(exception);
     }
 
 
