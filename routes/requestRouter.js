@@ -1,11 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const findResult = require('../helper/findResult');
 const availableNotes = [100, 50, 20, 10];
 
-router.get('/', (req, res, next) => {
+router.get('/:amount', (req, res, next) => {
   try {
-    const resultArr = findResult(availableNotes, req.query.amount);
+    const resultArr = findResult(availableNotes, req.params.amount);
     res.render('result', {
       result: resultArr
     });
@@ -16,9 +16,10 @@ router.get('/', (req, res, next) => {
   }
 });
 
-router.get('/:amount', (req, res, next) => {
+router.get('/', (req, res, next) => {
   try {
-    const resultArr = findResult(availableNotes, req.params.amount);
+    req.query.amount = req.query.amount === undefined ? 0 : req.query.amount;
+    const resultArr = findResult(availableNotes, req.query.amount);
     res.render('result', {
       result: resultArr
     });
