@@ -42,7 +42,7 @@ router.post('/', (req, res, next) => {
     let userInput = checkUserInput(req.body.amount)
     if (userInput % availableNotes[3] === 0) {
       const resultArray = []
-      findResultArray(availableNotes, userInput.resultArray)
+      findResultArray(availableNotes, userInput, resultArray)
       res.json({ resultArray })
     } else {
       throw 'NoteUnavailableException'
