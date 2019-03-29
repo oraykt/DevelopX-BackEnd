@@ -8,12 +8,12 @@ module.exports = (userInput, availableNotes, res) => {
     const resultArray = []
     findResultArray(availableNotes, userInput, resultArray)
     // TODO calculate amount
-    /**
+    /*
      * Result:
      * 100 x 3
      * 50 x 1
      * 20 x 2
-     * 10x 1
+     * 10 x 1
      */
     res.render('result', {
       result: resultArray

@@ -3,12 +3,12 @@
 
 <form action="/request" method="GET">
   <input type="number" placeholder="Please Type Amount" onkeydown="return event.keyCode !== 69" name="amount"
-    style="font-size: 13pt" size=25 max=10000>
+    style="font-size: 13pt" size=25 max=10000 required value="">
   <input type="Submit" style="font-size: 13pt" value="Withdraw with Get">
 </form>
 
 <form action="/request" method="POST">
   <input type="number" placeholder="Please Type Amount " onkeydown="return event.keyCode !== 69" name="amount"
-    style="font-size: 13pt" size=30 max=10000>
+    style="font-size: 13pt" size=30 max=10000 required value="">
   <input type="Submit" style="font-size: 13pt" value="Withdraw with Post">
 </form>
