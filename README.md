@@ -19,7 +19,7 @@ curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 It doesn't have private npm repo currently so we need to clone DevelopX-Express from git repo and install it locally via 
 
 ```bash
-git clone git@github.com:oraykt/DevelopX-Express.git && cd DevelopX-Express && npm install && npm start
+git clone --single-branch --branch develop git@github.com:oraykt/DevelopX-Express.git && cd DevelopX-Express && npm install && npm start
 ```
 
 
