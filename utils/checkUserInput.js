@@ -17,6 +17,6 @@ module.exports = (userInput, lastNote) => {
       throw 'InvalidArgumentException'
     }
   } else {
-    throw 'Just Type Numbers Please'
+    throw 'Just Type Numbers Please!'
   }
 }
