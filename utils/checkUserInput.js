@@ -1,8 +1,12 @@
 /* eslint-disable no-throw-literal */
-module.exports = (userInput) => {
+module.exports = (userInput, lastNote) => {
   if (!isNaN(userInput)) {
     if (userInput >= 0 && userInput <= 10000) {
-      return userInput
+      if (userInput % lastNote === 0) {
+        return userInput
+      } else {
+        throw 'NoteUnavailableException'
+      }
     }
     if (userInput > 10000) {
       throw 'Max Limit: 10000'

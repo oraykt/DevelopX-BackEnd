@@ -6,5 +6,4 @@ module.exports = (availableNotes, userInput, resultArray) => {
       resultArray.push(value)
     }
   })
-  return resultArray
 }

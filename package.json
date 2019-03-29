@@ -8,6 +8,8 @@
     "eslint": "node_modules/.bin/eslint "
   },
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "^2.6.1",
@@ -15,6 +17,7 @@
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
     "lodash": "^4.17.11",
+    "mocha": "^6.0.2",
     "morgan": "~1.9.0",
     "yargs": "^13.2.2"
   },
