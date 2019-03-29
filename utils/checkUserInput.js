@@ -1,7 +1,10 @@
 /* eslint-disable no-throw-literal */
 module.exports = (userInput, lastNote) => {
   if (!isNaN(userInput)) {
-    if (userInput >= 0 && userInput <= 10000) {
+    if (userInput === 0) {
+      throw 'Empty Set'
+    }
+    if (userInput > 0 && userInput <= 10000) {
       if (userInput % lastNote === 0) {
         return userInput
       } else {
@@ -14,6 +17,6 @@ module.exports = (userInput, lastNote) => {
       throw 'InvalidArgumentException'
     }
   } else {
-    throw 'InvalidArgumentException'
+    throw 'Just Type Numbers Please'
   }
 }
