@@ -1,7 +1,6 @@
 # DevelopX-Express Demo Challange
 
-![build](https://travis-ci.org/oraykt/DevelopX-Express.svg?branch=master)
-
+[![Build Status](https://travis-ci.org/oraykt/DevelopX-Express.svg?branch=master)](https://travis-ci.org/oraykt/DevelopX-Express)
 > https://oraykt-developx.herokuapp.com/
 
 
