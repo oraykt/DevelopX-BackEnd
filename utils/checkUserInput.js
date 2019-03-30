@@ -5,15 +5,27 @@ module.exports = (userInput, lastNote) => {
       if (userInput % lastNote === 0) {
         return userInput
       } else {
-        throw 'NoteUnavailableException'
+        throw {
+          error: 'NoteUnavailableException',
+          error_msg: 'Value must be in multiples of ' + lastNote
+        }
       }
     }
     if (userInput > 10000) {
-      throw 'Max Limit: 10000'
+      throw {
+        error: 'DailyLimitException',
+        error_msg: 'Daily withdrawal limit is 10000'
+      }
     } else {
-      throw 'InvalidArgumentException'
+      throw {
+        error: 'InvalidArgumentException',
+        error_msg: 'Value more than 0 and multiples of ' + lastNote
+      }
     }
   } else {
-    throw 'Just Type Numbers Please!'
+    throw {
+      error: 'InvalidArgumentException',
+      error_msg: 'Just Type Numbers!'
+    }
   }
 }

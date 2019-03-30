@@ -11,21 +11,14 @@ const findResultArray = (availableNotes, userInput, resultArray) => {
 }
 
 const withdrawService = {
-  withdraw: (userInput, availableNotes, res) => {
+  withdraw: (userInput, availableNotes) => {
     try {
-      if (checkUserInput(userInput, availableNotes[3])) {
-        const resultArray = []
-        findResultArray(availableNotes, userInput, resultArray)
-        res.render('result', {
-          result: resultArray
-        })
-      } else {
-        res.render('withdrawService')
-      }
+      checkUserInput(userInput, availableNotes[3])
+      const resultArray = []
+      findResultArray(availableNotes, userInput, resultArray)
+      return { result: resultArray }
     } catch (exception) {
-      res.render('exception', {
-        exception
-      })
+      throw exception
     }
   }
 }
