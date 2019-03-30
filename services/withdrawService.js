@@ -1,8 +1,15 @@
-
 const checkUserInput = require('../utils/checkUserInput')
-const findResultArray = require('../services/findResultArray')
 
-module.exports = (userInput, availableNotes, res) => {
+const findResultArray = (availableNotes, userInput, resultArray) => {
+  availableNotes.forEach((value, index) => {
+    const division = Math.floor(userInput / value)
+    userInput -= value * division
+    for (let i = 0; i < division; i++) {
+      resultArray.push(value)
+    }
+  })
+}
+const withdrawService = (userInput, availableNotes, res) => {
   try {
     checkUserInput(userInput, availableNotes[3])
     const resultArray = []
@@ -24,3 +31,4 @@ module.exports = (userInput, availableNotes, res) => {
     })
   }
 }
+module.exports = withdrawService
