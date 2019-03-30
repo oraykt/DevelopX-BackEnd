@@ -12,9 +12,9 @@ router.get('/', (req, res, next) => {
 
 router.post('/withFront', (req, res, next) => {
   try {
-    res.render('result',
-      withdrawService.withdraw(req.body.amount, availableNotes)
-    )
+    res.render('result', {
+      result: withdrawService.withdraw(req.body.amount, availableNotes)
+    })
   } catch (exception) {
     res.render('exception', {
       exception
@@ -24,9 +24,13 @@ router.post('/withFront', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   try {
-    res.status(200).json(withdrawService.withdraw(req.body.amount, availableNotes))
+    res.status(200).json({
+      result: withdrawService.withdraw(req.body.amount, availableNotes)
+    })
   } catch (exception) {
-    res.status(400).json(exception)
+    res.status(400).json({
+      exception
+    })
   }
 })
 

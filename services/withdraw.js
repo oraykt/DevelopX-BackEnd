@@ -16,7 +16,7 @@ const withdrawService = {
       checkUserInput(userInput, availableNotes[3])
       const resultArray = []
       findResultArray(availableNotes, userInput, resultArray)
-      return { result: resultArray }
+      return resultArray
     } catch (exception) {
       throw exception
     }
