@@ -11,11 +11,23 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/withFront', (req, res, next) => {
-  withdrawService.withdraw(req.body.amount, availableNotes, res)
+  try {
+    res.render('result',
+      withdrawService.withdraw(req.body.amount, availableNotes)
+    )
+  } catch (exception) {
+    res.render('exception', {
+      exception
+    })
+  }
 })
 
 router.post('/', (req, res, next) => {
-  withdrawService.withdraw(req.body.amount, availableNotes, res)
+  try {
+    res.status(200).json(withdrawService.withdraw(req.body.amount, availableNotes))
+  } catch (exception) {
+    res.status(400).json(exception)
+  }
 })
 
 module.exports = router
