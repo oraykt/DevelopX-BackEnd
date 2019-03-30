@@ -1,4 +1,4 @@
-# DevelopX-Express Demo Challange
+# DevelopX-Express Cash Machine Challange
 
 [![Build Status](https://travis-ci.org/oraykt/DevelopX-Express.svg?branch=master)](https://travis-ci.org/oraykt/DevelopX-Express)
 > https://oraykt-developx.herokuapp.com/
