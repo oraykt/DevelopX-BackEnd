@@ -16,14 +16,6 @@ const withdrawService = {
       if (checkUserInput(userInput, availableNotes[3])) {
         const resultArray = []
         findResultArray(availableNotes, userInput, resultArray)
-        // TODO calculate amount
-        /*
-         * Result:
-         * 100 x 3
-         * 50 x 1
-         * 20 x 2
-         * 10 x 1
-         */
         res.render('result', {
           result: resultArray
         })
