@@ -9,22 +9,53 @@ const findResultArray = (availableNotes, userInput, resultArray) => {
     }
   })
 }
+
+// const withdrawService = {
+//   withdraw: (userInput, availableNotes, res) => {
+// try {
+//   if (checkUserInput(userInput, availableNotes[3])) {
+//     const resultArray = []
+//     findResultArray(availableNotes, userInput, resultArray)
+//     // TODO calculate amount
+//     /*
+//      * Result:
+//      * 100 x 3
+//      * 50 x 1
+//      * 20 x 2
+//      * 10 x 1
+//      */
+//     res.render('result', {
+//       result: resultArray
+//     })
+//   } else {
+//     res.render('withdrawService')
+//   }
+// } catch (exception) {
+//   res.render('exception', {
+//     exception
+//   })
+// }
+//   }
+// }
 const withdrawService = (userInput, availableNotes, res) => {
   try {
-    checkUserInput(userInput, availableNotes[3])
-    const resultArray = []
-    findResultArray(availableNotes, userInput, resultArray)
-    // TODO calculate amount
-    /*
-     * Result:
-     * 100 x 3
-     * 50 x 1
-     * 20 x 2
-     * 10 x 1
-     */
-    res.render('result', {
-      result: resultArray
-    })
+    if (checkUserInput(userInput, availableNotes[3])) {
+      const resultArray = []
+      findResultArray(availableNotes, userInput, resultArray)
+      // TODO calculate amount
+      /*
+       * Result:
+       * 100 x 3
+       * 50 x 1
+       * 20 x 2
+       * 10 x 1
+       */
+      res.render('result', {
+        result: resultArray
+      })
+    } else {
+      res.render('withdraw')
+    }
   } catch (exception) {
     res.render('exception', {
       exception

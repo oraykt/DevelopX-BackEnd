@@ -4,7 +4,7 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
-const requestRouter = require('./routes/requestRouter')
+const withdrawRouter = require('./routes/withdrawRouter')
 const app = express()
 
 // view engine setup
@@ -18,7 +18,7 @@ app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/request', requestRouter)
+app.use('/withdraw', withdrawRouter)
 app.get('/', (req, res, next) => {
   res.render('index')
 })
