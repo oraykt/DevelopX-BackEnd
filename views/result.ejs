@@ -1,11 +1,28 @@
 <h4>Result:</h4>
 <ul>
-  <% if(result.length!==0){%>
-
-  <%result.forEach(function(val){%>
+  <% if(result.length!==0){
+    var amount = 1;
+    result.forEach(function(val,i){%>
+  <%
+    if(result[i+1]){
+      if(val === result[i+1]){
+        amount++;
+      }else{ %>
   <li>
-    <%=val%>
+    <%=val%> x <%=amount%>
   </li>
+
+  <%
+    amount=1
+      }
+    }else{ %>
+  <li>
+    <%=val%> x <%=amount%>
+  </li>
+  <%
+    amount=1
+    }
+    %>
 
   <%})%>
   <%}else{%>
