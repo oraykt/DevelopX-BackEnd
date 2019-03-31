@@ -38,6 +38,8 @@ The basic requirements are the follow:
 - [withdrawService](https://github.com/oraykt/DevelopX-Express/blob/master/services/withdraw.js) is Business Function
 - [checkUserInput](https://github.com/oraykt/DevelopX-Express/blob/master/utils/checkUserInput.js) is Logical Calculation
 - [Views](https://github.com/oraykt/DevelopX-Express/tree/master/views) The interface that users use the interface
+- [Test](https://github.com/oraykt/DevelopX-Express/blob/master/test/withdrawRouter.js) is the tests
+- [Test Logs](https://travis-ci.org/oraykt/DevelopX-Express)
 
 ## Installation
 
