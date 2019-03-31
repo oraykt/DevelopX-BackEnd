@@ -1,7 +1,33 @@
-<h4> Withdraw Page </h4>
+<%- include('header'); -%>
+
+<script>
+  function maxLengthCheck(object) {
+    if (object.value.length > object.maxLength)
+      object.value = object.value.slice(0, object.maxLength)
+  }
+</script>
+
+<nav>
+  <div class="nav-wrapper">
+    <div class="col s12">
+      <a href="/" class="breadcrumb">CashMachine Service</a>
+      <a href="/withdraw" class="breadcrumb">Withdraw Page</a>
+    </div>
+  </div>
+</nav>
+
+<h4 class="header waves-light"> Withdraw Page </h4>
 
 <form action="/withdraw/withFront" method="POST">
-  <input type="number" placeholder="Please Type Amount" onkeydown="return event.keyCode !== 69" name="amount"
-    style="font-size: 13pt" size=25 max=10000 required value="">
-  <input type="Submit" style="font-size: 13pt" value="Withdraw ">
+  <div class="row">
+    <div class="input-field col s3">
+      <input type="number" oninput="maxLengthCheck(this)" onkeydown="return event.keyCode !== 69" placeholder="Amount"
+        max="99999" maxlength="5" name="amount">
+      <label class="active">Withdraw Amount</label>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Withdraw
+        <i class="material-icons right">attach_money</i>
+      </button>
+    </div>
+
+  </div>
 </form>

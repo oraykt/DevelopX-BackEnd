@@ -1,10 +1,21 @@
-<h4>Exception</h4>
-<ul>
-  <li>
-    <b><%=exception.error%></b>
+<%- include('header'); -%>
+
+
+<nav>
+  <div class="nav-wrapper">
+    <div class="col s12">
+      <a href="/" class="breadcrumb">CashMachine Service</a>
+      <a href="/withdraw" class="breadcrumb">Withdraw Page</a>
+      <a href="#!" class="breadcrumb">Error</a>
+    </div>
+</nav>
+
+
+<ul class="collection with-header">
+  <li class="collection-header">
+    <h4><%=exception.error%></h4>
   </li>
-  <p>
-    <%=exception.error_msg%>
-  </p>
+  <li class="collection-item"><%=exception.error_msg%></li>
 </ul>
-<span><a href="/withdraw"><button>Back to Withdraw Page</button></a></span>
+<a class="waves-effect waves-light btn-small" href="/withdraw">Back to Withdraw Page<i
+    class="material-icons right">arrow_back</i></a>

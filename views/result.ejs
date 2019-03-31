@@ -1,5 +1,17 @@
+<%- include('header'); -%>
+
+
+<nav>
+  <div class="nav-wrapper">
+    <div class="col s12">
+      <a href="/" class="breadcrumb">CashMachine Service</a>
+      <a href="/withdraw" class="breadcrumb">Withdraw Page</a>
+      <a href="#!" class="breadcrumb">Result Page</a>
+    </div>
+</nav>
+
 <h4>Result:</h4>
-<ul>
+<ul class="collection">
   <% if(result.length!==0){
     var amount = 1;
     result.forEach(function(val,i){%>
@@ -8,7 +20,7 @@
       if(val === result[i+1]){
         amount++;
       }else{ %>
-  <li>
+  <li class="collection-item">
     <%=val%> x <%=amount%>
   </li>
 
@@ -16,7 +28,7 @@
     amount=1
       }
     }else{ %>
-  <li>
+  <li class="collection-item">
     <%=val%> x <%=amount%>
   </li>
   <%
@@ -26,11 +38,10 @@
 
   <%})%>
   <%}else{%>
-  <li>
+  <li class="collection-item">
     Empty Set
   </li>
   <%}%>
     
 </ul>
-
-<p><a href="/withdraw"><button>Back to Withdraw Page</button></a></p>
+<a class="waves-effect waves-light btn-small" href="/withdraw">Back to Withdraw Page <i class="material-icons right">arrow_back</i></a>
