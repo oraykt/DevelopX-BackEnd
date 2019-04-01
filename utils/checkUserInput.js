@@ -1,7 +1,7 @@
 /* eslint-disable no-throw-literal */
-module.exports = (userInput, lastNote) => {
+module.exports = (userInput, lastNote, dailyLimit) => {
   if (!isNaN(userInput)) {
-    if (userInput >= 0 && userInput <= 10000) {
+    if (userInput >= 0 && userInput < dailyLimit) {
       if (userInput % lastNote === 0) {
         return userInput
       } else {
@@ -11,10 +11,10 @@ module.exports = (userInput, lastNote) => {
         }
       }
     }
-    if (userInput > 10000) {
+    if (userInput > dailyLimit) {
       throw {
         error: 'DailyLimitException',
-        error_msg: 'Daily withdrawal limit is 10000'
+        error_msg: 'Daily withdrawal limit is ' + dailyLimit
       }
     } else {
       throw {

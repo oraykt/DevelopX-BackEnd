@@ -2,18 +2,15 @@ const express = require('express')
 const router = express.Router()
 const withdrawService = require('../services/withdraw')
 
-const availableNotes = [100, 50, 20, 10]
-
-// TODO userInput name
-
 router.get('/', (req, res, next) => {
+  // TODO `DailyLimit` could be defined here
   res.render('withdraw')
 })
 
 router.post('/withFront', (req, res, next) => {
   try {
     res.render('result', {
-      result: withdrawService.withdraw(req.body.amount, availableNotes)
+      result: withdrawService.withdraw(req.body.amount)
     })
   } catch (exception) {
     res.render('exception', {
@@ -25,7 +22,7 @@ router.post('/withFront', (req, res, next) => {
 router.post('/', (req, res, next) => {
   try {
     res.status(200).json({
-      result: withdrawService.withdraw(req.body.amount, availableNotes)
+      result: withdrawService.withdraw(req.body.amount)
     })
   } catch (exception) {
     res.status(400).json({
