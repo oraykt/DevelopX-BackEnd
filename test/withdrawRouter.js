@@ -5,8 +5,10 @@ const should = chai.should()
 const server = require('../app')
 
 chai.use(chaiHttp)
+
 const successArray = ['', 0, 10, 20, 30, 40, 50, 80, 100, 180]
 const failArray = [1, 9, 125, -130, 'string']
+
 successArray.map((val, index) => {
   describe(`POST /withdraw body: { amount: ${val}  }`, () => {
     it('It should return Array', (done) => {
@@ -20,6 +22,7 @@ successArray.map((val, index) => {
           res.should.an('Object')
           res.body.should.have.property('result')
           res.body.should.have.property('result').an('array')
+          console.log(res.body.result)
           done()
         })
     })
@@ -41,6 +44,8 @@ failArray.map((val, index) => {
           res.body.exception.should.an('Object')
           res.body.exception.should.have.property('error')
           res.body.exception.should.have.property('error_msg')
+          console.log(res.body.exception.error)
+          console.log(res.body.exception.error_msg)
           done()
         })
     })
