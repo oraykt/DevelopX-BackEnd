@@ -8,6 +8,9 @@ const findResultArray = (availableNotes, userInput, resultArray) => {
   availableNotes.forEach((value) => {
     const division = Math.floor(userInput / value)
     userInput -= value * division
+    // if (division) {
+    //   resultArray.push(value + ' x ' + division)
+    // }
     for (let i = 0; i < division; i++) {
       resultArray.push(value)
     }
