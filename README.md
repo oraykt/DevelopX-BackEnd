@@ -1,6 +1,7 @@
 # DevelopX-Express Cash Machine Challange
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c84e8d54bf04d3597b8bac562420025)](https://app.codacy.com/app/oraykt/DevelopX-Express?utm_source=github.com&utm_medium=referral&utm_content=oraykt/DevelopX-Express&utm_campaign=Badge_Grade_Settings)
+
 [![Build Status](https://travis-ci.org/oraykt/DevelopX-Express.svg?branch=master)](https://travis-ci.org/oraykt/DevelopX-Express)
 > https://oraykt-developx.herokuapp.com/
 
