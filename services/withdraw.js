@@ -8,6 +8,7 @@ const findResultArray = (availableNotes, userInput, resultArray) => {
   availableNotes.forEach((value) => {
     const division = Math.floor(userInput / value)
     userInput -= value * division
+    // Szymon Question
     // if (division) {
     //   resultArray.push(value + ' x ' + division)
     // }
