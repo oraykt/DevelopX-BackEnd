@@ -51,10 +51,10 @@ const expectedFailResponseArray = [
 ]
 
 sucessRequestArray.map((val, index) => {
-  describe(`POST /withdraw body: { amount: ${val}  }`, () => {
+  describe(`POST /api/v1/withdraw body: { amount: ${val}  }`, () => {
     it('It should return Array', (done) => {
       chai.request(server)
-        .post('/withdraw')
+        .post('/api/v1/withdraw')
         .send({
           amount: val
         })
@@ -72,10 +72,10 @@ sucessRequestArray.map((val, index) => {
 })
 
 failRequestArray.map((val, index) => {
-  describe(`POST /withdraw body: { amount: ${val} }`, () => {
+  describe(`POST /api/v1/withdraw body: { amount: ${val} }`, () => {
     it('It should throw `Exception` with statusCode: 400', (done) => {
       chai.request(server)
-        .post('/withdraw')
+        .post('/api/v1/withdraw')
         .send({
           amount: val
         })
