@@ -21,7 +21,7 @@ const expectedSuccessResponseArray = [
   { result: [100] },
   { result: [100, 50, 20, 10] }
 ]
-const failRequestArray = [1, 9, 125, -130, 'string']
+const failRequestArray = [1, 9, 125, -130, 'string', 100010]
 const expectedFailResponseArray = [
   {
     exception: {
@@ -46,6 +46,11 @@ const expectedFailResponseArray = [
   {
     exception: {
       error: 'InvalidArgumentException'
+    }
+  },
+  {
+    exception: {
+      error: 'DailyLimitException'
     }
   }
 ]

@@ -1,7 +1,7 @@
 /* eslint-disable no-throw-literal */
 module.exports = (userInput, lastNote, dailyLimit) => {
   if (!isNaN(userInput)) {
-    if (userInput >= 0 && userInput < dailyLimit) {
+    if (userInput >= 0 && userInput <= dailyLimit) {
       if (userInput % lastNote === 0) {
         return userInput
       } else {
