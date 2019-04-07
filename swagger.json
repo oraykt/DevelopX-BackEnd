@@ -1,0 +1,103 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "DevelopX",
+    "description": "CashMachine Project",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "https://oraykt-developx.herokuapp.com/",
+  "basePath": "",
+  "tags": [
+    {
+      "name": "Withdraw",
+      "description": "Withdraw Service"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/v1/withdraw": {
+      "post": {
+        "tags": [
+          "Withdraw"
+        ],
+        "description": "Withdraw Some Money",
+        "parameters": [
+          {
+            "name": "amount",
+            "in": "body",
+            "description": "Withdraw Some Money",
+            "schema": {
+              "$ref": "#/definitions/Withdraw"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/WithdrawSuccessResponse"
+            }
+          },
+          "400": {
+            "description": "Exception",
+            "schema": {
+              "$ref": "#/definitions/WithdrawExceptionResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Withdraw": {
+      "required": [
+        "amount"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number"
+        }
+      }
+    },
+    "WithdrawSuccessResponse": {
+      "properties": {
+        "result": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "WithdrawExceptionResponse": {
+      "properties": {
+        "exception": {
+          "type": "object",
+          "properties": {
+            "error": {
+              "type": "string"
+            },
+            "error_msg": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

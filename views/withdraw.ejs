@@ -11,14 +11,14 @@
   <div class="nav-wrapper">
     <div class="col s12">
       <a href="/" class="breadcrumb">CashMachine Service</a>
-      <a href="/withdraw" class="breadcrumb">Withdraw Page</a>
+      <a href="/api/v1/withdraw" class="breadcrumb">Withdraw Page</a>
     </div>
   </div>
 </nav>
 
 <h4 class="header waves-light"> Withdraw Page </h4>
 
-<form action="/withdraw/withFront" method="POST">
+<form action="/api/v1/withdraw/withFront" method="POST">
   <div class="row">
     <div class="input-field col s3">
       <input type="number" oninput="maxLengthCheck(this)" onkeydown="return event.keyCode !== 69" placeholder="Amount"

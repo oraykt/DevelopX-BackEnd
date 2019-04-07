@@ -4,9 +4,13 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 const bodyParser = require('body-parser')
-const withdrawRouter = require('./routes/withdrawRouter')
 const app = express()
-
+// Routes
+const withdrawRouter = require('./routes/withdrawRouter')
+// Swagger
+const swaggerUi = require('swagger-ui-express')
+const swaggerDocument = require('./swagger.json')
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
@@ -23,7 +27,7 @@ app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/withdraw', withdrawRouter)
+app.use('/api/v1/withdraw', withdrawRouter)
 app.get('/', (req, res, next) => {
   res.render('index')
 })
