@@ -3,9 +3,11 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/0912e19828aa40f798ba86355c9267e2)](https://www.codacy.com/app/oraykt/DevelopX-Express?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=oraykt/DevelopX-Express&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/oraykt/DevelopX-Express.svg?branch=master)](https://travis-ci.org/oraykt/DevelopX-Express)
 
-> https://oraykt-developx.herokuapp.com/
+https://oraykt-developx.herokuapp.com/
 <br/>
-> https://oraykt-developx.herokuapp.com/api-docs
+API Usage is displayed with Swagger
+<br/>
+https://oraykt-developx.herokuapp.com/api-docs
 
 
 ## The Problem
